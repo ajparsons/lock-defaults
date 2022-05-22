@@ -1,0 +1,14 @@
+*.pyc
+.settings/
+.project
+.metadata
+.gradle
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+__pycache__
