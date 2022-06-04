@@ -2,7 +2,7 @@
 name = "lock-defaults"
 version = "0.1.0"
 description = "Helper decorator to lock default mutable values"
-authors = ["Alex Parsons <alex@alexparsons.co.uk"]
+authors = ["Alex Parsons <alex@alexparsons.co.uk>"]
 readme = "README.md"
 license = "MIT"
 homepage = "https://github.com/ajparsons/lock-defaults"
