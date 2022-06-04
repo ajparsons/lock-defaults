@@ -21,7 +21,7 @@ jobs:
       - name: Show diff results
         shell: bash
         run : |
-          echo "$remote_exists
+          echo "$remote_exists"
           echo "${{ steps.get_status.outputs.version_difference }}"
         env:
           remote_exists: ${{ steps.tests.outputs.stdout }}
