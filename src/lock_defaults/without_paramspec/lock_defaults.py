@@ -1,5 +1,5 @@
 """
-lock-defaults - for python 3.8,3.9
+lock-defaults - for python 3.8, 3.9
 
 This file depends only on the standard library and can be copied
 directly into a project.
