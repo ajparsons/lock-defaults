@@ -27,14 +27,8 @@ jobs:
         with:
          package_name: ${{ steps.repo_name.outputs.value }}
 
-      - name: Show diff results
-        shell: bash
-        run : |
-          echo "${{ steps.get_status.outputs.remote_exists }}"
-          echo "${{ steps.get_status.outputs.version_difference }}"
-
-      - name: gated results
+      - name: Build and publish to pypi
         if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
-        shell: bash
-        run : |
-          echo "this runs"
+        uses: JRubics/poetry-publish@v1.11
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
