@@ -14,6 +14,18 @@ outputs:
 runs:
   using: "composite"
   steps:
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.10"
+
+    - name: Install poetry
+      run: |
+        python -m ensurepip
+        python -m pip install --upgrade pip
+        python -m pip install poetry
+        
     - name: get_version_status
       run: ./.github/actions/get_status/get_version_status.sh
       shell: bash

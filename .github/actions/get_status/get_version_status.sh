@@ -8,7 +8,7 @@ else
     remoteExists=1
 fi
 
-localVersion=$(poetry version --short)
+localVersion=$(python -m poetry version --short)
 diff=0
 
 if [ $remoteExists -eq 1 ]
