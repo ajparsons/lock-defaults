@@ -12,7 +12,7 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: get_status
+      - id: get_status
         uses: ./.github/actions/get_status
         with:
          package_name: lock-defaults
