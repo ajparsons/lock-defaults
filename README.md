@@ -30,7 +30,7 @@ def func(foo: list = []):
 
 ## Install
 
-You can install from pip: `python -m pip install lock-defaults'
+You can install from pip: `python -m pip install lock-defaults`
 
 Or you can copy the function directly into your projects.
 
