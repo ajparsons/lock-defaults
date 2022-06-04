@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run tests
-        uses: ./.github/workflows/test
+        uses: ./.github/workflows/test.yml
         
       - name: Build and publish to pypi
         uses: JRubics/poetry-publish@v1.11
