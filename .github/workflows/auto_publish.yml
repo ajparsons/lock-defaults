@@ -20,7 +20,7 @@ jobs:
         name: get_status
         uses: ./.github/actions/get_status
         with:
-         package_name: {{ steps.repo_name.outputs.value }}
+         package_name: ${{ steps.repo_name.outputs.value }}
 
       - name: Show diff results
         shell: bash
