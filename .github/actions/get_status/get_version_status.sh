@@ -20,5 +20,16 @@ then
     fi
 fi
 
-echo '::set-output name=version_difference::$diff'
-echo '::set-output name=remote_exists::$remoteExists'
+if [ $diff -eq 1 ]
+then
+    echo '::set-output name=version_difference::true'
+else
+    echo '::set-output name=version_difference::false'
+fi
+
+if [ $remoteExists -eq 1 ]
+then
+    echo '::set-output name=remote_exists::true'
+else
+    echo '::set-output name=remote_exists::false'
+fi
