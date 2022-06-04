@@ -8,7 +8,7 @@ license = "MIT"
 homepage = "https://github.com/ajparsons/lock-defaults"
 repository = "https://github.com/ajparsons/lock-defaults"
 include = [
-    "LICENSE",
+    "LICENSE.md",
 ]
 
 [tool.poetry.dependencies]
