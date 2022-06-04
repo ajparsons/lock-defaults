@@ -15,7 +15,7 @@ runs:
   using: "composite"
   steps:
     - name: get_version_status
-      run: get_version_status.sh
+      run: ./.github/actions/get_status/get_version_status.sh
       shell: bash
       env:
         pythonPackage: ${{ inputs.package_name }}
