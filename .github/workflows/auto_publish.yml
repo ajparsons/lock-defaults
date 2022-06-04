@@ -1,12 +1,17 @@
-name: Publish package to pypi
+name: Run tests and publish (if new)
 
 on:
   workflow_dispatch:
-  push: 
+  push:
+    branches: [main]
 
 jobs:
 
+  test:
+    uses: ./.github/workflows/test.yml
+
   publish:
+    needs: test
     runs-on: ubuntu-latest
     steps:
 

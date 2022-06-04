@@ -2,9 +2,9 @@ name: Run pytest
 
 on:
   push:
-    branches: [ main ]
+    branches-ignore: [ main ]
   pull_request:
-    branches: [ main ]
+    branches-ignore: [ main ]
   workflow_call:
 
 jobs:
