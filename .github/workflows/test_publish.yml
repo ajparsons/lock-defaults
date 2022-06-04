@@ -5,14 +5,15 @@ on:
 
 jobs:
   test:
+    uses: ./.github/workflows/test   
+
+  test-publish:
+    needs: test 
     runs-on: ubuntu-latest
     steps:
 
       - uses: actions/checkout@v2
 
-      - name: Run tests
-        uses: ./.github/workflows/test
-        
       - name: Build and publish to pypi
         uses: JRubics/poetry-publish@v1.11
         with:
