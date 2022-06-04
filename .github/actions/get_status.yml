@@ -1,0 +1,21 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  package_name: 
+    description: 'Name of pypi package'
+    required: true
+outputs:
+  remote_exists:
+    description: "0 or 1 if there is a pypi pitem for this repo"
+    value: ${{ steps.get_version_status.outputs.remote_exists }}
+  version_difference:
+    description: "0 or 1 if there is a difference between poetry and pypi version"
+    value: ${{ steps.get_version_status.outputs.version_difference }}
+runs:
+  using: "composite"
+  steps:
+    - name: get_version_status
+      run: get_version_status.sh
+      shell: bash
+      env:
+        pythonPackage: ${{ package_name }}

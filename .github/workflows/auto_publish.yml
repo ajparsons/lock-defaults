@@ -1,0 +1,25 @@
+name: Publish package to pypi
+
+on:
+  workflow_dispatch:
+  push: 
+
+jobs:
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: get_status
+        uses: ./.github/actions/get_status.yml
+        with:
+         package_name: lock-defaults
+
+
+      - name: Show diff results
+        shell: bash
+        run : |
+          echo  ${{ steps.get_status.outputs.remote_exists }}
+          echo  ${{ steps.get_status.outputs.version_difference }}    
