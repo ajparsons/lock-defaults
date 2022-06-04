@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - id: get_status
+        name: get_status
         uses: ./.github/actions/get_status
         with:
          package_name: lock-defaults
@@ -20,5 +21,7 @@ jobs:
       - name: Show diff results
         shell: bash
         run : |
-          echo "${{ steps.get_status.outputs.remote_exists }}"
+          echo "$remote_exists
           echo "${{ steps.get_status.outputs.version_difference }}"
+        env:
+          remote_exists: ${{ steps.tests.outputs.stdout }}
