@@ -1,4 +1,7 @@
 # lock-defaults
+[![PyPI](https://img.shields.io/pypi/v/lock-defaults.svg)](https://pypi.org/project/lock-defaults/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/inkleby/lock-defaults/blob/main/LICENSE.md)
+[![Copy and Paste](https://img.shields.io/badge/Copy%20%2B%20Paste%3F-yes!-blue)](#install)
 
 This decorator is small and only relies on the standard library, so can just be copied into a project.
 
@@ -35,4 +38,4 @@ You can install from pip: `python -m pip install lock-defaults`
 Or you can copy the function directly into your projects.
 
 * For python 3.10+: [with_paramspec/lock_defaults.py](/src/lock_defaults/with_paramspec/lock_defaults.py)
-* For python 3.9: [without_paramspec/lock_defaults.py](/src/lock_defaults/without_paramspec/lock_defaults.py)
+* For python 3.8, 3.9: [without_paramspec/lock_defaults.py](/src/lock_defaults/without_paramspec/lock_defaults.py)
