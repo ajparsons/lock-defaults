@@ -7,7 +7,7 @@ with static typing.
 Import lockmutabledefault or the alias lockdefaults
 
 """
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 import sys
 
