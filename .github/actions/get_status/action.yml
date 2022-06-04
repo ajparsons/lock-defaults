@@ -4,6 +4,7 @@ inputs:
   package_name: 
     description: 'Name of pypi package'
     required: true
+    value: ${{ github.event.repository.name }}
 outputs:
   remote_exists:
     description: "0 or 1 if there is a pypi pitem for this repo"

@@ -16,7 +16,7 @@ jobs:
         name: get_status
         uses: ./.github/actions/get_status
         with:
-         package_name: lock-defaults-garbage
+         package_name: ${{ github.event.repository.name }}
 
       - name: Show diff results
         shell: bash
