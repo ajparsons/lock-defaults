@@ -5,7 +5,7 @@ This decorator is small and only relies on the standard library, so can just be 
 Python has a weird behaviour around default values for functions. If you use an empty list as a default argument, things added to the list during the function can hang around for next time the function is called. A common pattern of dealing with this is the following:
 
 ```python
-def func(foo : None ):
+def func(foo = None):
     if foo is None:
         foo = []
 ```
@@ -13,17 +13,17 @@ def func(foo : None ):
 But this looks rubbish! And gets worse when you add typing:
 
 ```python
-def func(foo: list | None = None ):
+def func(foo: list | None = None):
     if foo is None:
         foo = []
 ```
 
 You don't need that workaround for any other of default value. Why does the list parameter have to pretend it can be None, when that's not the intention at all?
 
-The `lockdefaultvalues` decorator fixes this by introducing what *should* be the default approach, and default values that are lists, dictionaries or sets are isolated in each re-run.
+The `lockmutabledefaults` decorator fixes this by introducing what *should* be the default approach, and default values that are lists, dictionaries or sets are isolated in each re-run.
 
 ```python
-@lockdefaultvalues
+@lockmutabledefaults
 def func(foo: list = []):
     pass
 ```
