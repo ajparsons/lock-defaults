@@ -21,11 +21,12 @@ runs:
         python-version: "3.10"
 
     - name: Install poetry
+      shell: bash
       run: |
         python -m ensurepip
         python -m pip install --upgrade pip
         python -m pip install poetry
-        
+
     - name: get_version_status
       run: ./.github/actions/get_status/get_version_status.sh
       shell: bash
