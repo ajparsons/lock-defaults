@@ -19,7 +19,13 @@ jobs:
          package_name: lock-defaults
 
       - name: Show diff results
-        if: ${{ steps.tests.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
+        shell: bash
+        run : |
+          echo "${{ steps.get_status.outputs.remote_exists }}"
+          echo "${{ steps.get_status.outputs.version_difference }}"
+
+      - name: gated results
+        if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
         shell: bash
         run : |
           echo "this runs"
