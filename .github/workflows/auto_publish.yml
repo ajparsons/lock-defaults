@@ -21,5 +21,5 @@ jobs:
       - name: Show diff results
         shell: bash
         run : |
-          echo  ${{ steps.get_status.outputs.remote_exists }}
-          echo  ${{ steps.get_status.outputs.version_difference }}    
+          echo "${{ steps.get_status.outputs.remote_exists }}"
+          echo "${{ steps.get_status.outputs.version_difference }}"
