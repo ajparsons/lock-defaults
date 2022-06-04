@@ -1,0 +1,17 @@
+name: Publish package to pypi
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        uses: ./.github/workflows/test
+        
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v1.11
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}

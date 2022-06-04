@@ -2,16 +2,26 @@
 name = "lock-defaults"
 version = "0.1.0"
 description = "Helper decorator to lock default mutable values"
-authors = ["Alex Parsons"]
+authors = ["Alex Parsons <alex@alexparsons.co.uk"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/ajparsons/lock-defaults"
+repository = "https://github.com/ajparsons/lock-defaults"
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
 pytest-cov = "^3.0.0"
 pylint = "^2.12.2"
 black = "^22.3.0"
+pyright = "^1.1"
+toml = "^0.10.2"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

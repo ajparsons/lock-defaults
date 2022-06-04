@@ -6,4 +6,5 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
     echo "export PATH=\"$HOME/.poetry/bin:$PATH\"" > ~/.bashrc && \
     export PATH="$HOME/.poetry/bin:$PATH"  && \
     poetry config virtualenvs.create false && \
-    poetry install
+    poetry install && \
+    echo "/workspaces/lock-defaults/src/" > /usr/local/lib/python3.10/site-packages/lock_defaults.pth
