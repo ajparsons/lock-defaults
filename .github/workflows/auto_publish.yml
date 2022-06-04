@@ -1,4 +1,4 @@
-name: Run tests and publish (if new)
+name: "Run tests and publish (if new version)"
 
 on:
   workflow_dispatch:
