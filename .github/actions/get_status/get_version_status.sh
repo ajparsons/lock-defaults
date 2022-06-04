@@ -20,5 +20,5 @@ then
     fi
 fi
 
-echo '::set-output version_difference::$diff'
-echo '::set-output remote_exists::$remoteExists'
+echo '::set-output name=version_difference::$diff'
+echo '::set-output name=remote_exists::$remoteExists'
