@@ -18,4 +18,4 @@ runs:
       run: get_version_status.sh
       shell: bash
       env:
-        pythonPackage: ${{ package_name }}
+        pythonPackage: ${{ inputs.package_name }}
