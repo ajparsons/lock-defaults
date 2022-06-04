@@ -12,11 +12,15 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - name: Fetch repo name
+        id: repo_name
+        run: echo "::set-output name=value::$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')"
+
       - id: get_status
         name: get_status
         uses: ./.github/actions/get_status
         with:
-         package_name: ${{ github.event.repository.name }}
+         package_name: {{ steps.repo_name.outputs.value }}
 
       - name: Show diff results
         shell: bash
