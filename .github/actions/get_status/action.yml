@@ -28,6 +28,7 @@ runs:
         python -m pip install poetry
 
     - name: get_version_status
+      id: get_version_status
       run: ./.github/actions/get_status/get_version_status.sh
       shell: bash
       env:
