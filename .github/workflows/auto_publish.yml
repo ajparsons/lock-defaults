@@ -16,7 +16,7 @@ jobs:
         name: get_status
         uses: ./.github/actions/get_status
         with:
-         package_name: lock-defaults
+         package_name: lock-defaults-garbage
 
       - name: Show diff results
         shell: bash
