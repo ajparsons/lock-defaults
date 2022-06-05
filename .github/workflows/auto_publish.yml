@@ -1,5 +1,9 @@
 name: "Publish package"
 
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}-${{ github.event.inputs.pypi }}-${{ github.event.inputs.testpypi }}
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
     inputs:
