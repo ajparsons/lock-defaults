@@ -1,4 +1,4 @@
-name: "Run tests and publish"
+name: "Publish package"
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
     uses: ./.github/workflows/test.yml
 
   publish-auto:
-    if: ${{ github.event.inputs.testpypi == 'false' && github.event.inputs.pypi == 'false' }}
+    if: ${{ (github.event.inputs.testpypi == 'false' && github.event.inputs.pypi == 'false') || github.event_name == 'push' }}
     needs: test
     runs-on: ubuntu-latest
     steps:
