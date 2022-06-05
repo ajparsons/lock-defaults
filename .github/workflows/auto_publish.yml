@@ -1,7 +1,17 @@
-name: "Run tests and publish (if new version)"
+name: "Run tests and publish"
 
 on:
+on:
   workflow_dispatch:
+    inputs:
+        pypi:
+          description: Force to pypi
+          type: boolean
+          default: false
+        testpypi:
+          description: Force to testpypi
+          type: boolean
+          default: false
   push:
     branches: [main]
 
@@ -10,7 +20,8 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
 
-  publish:
+  publish-auto:
+    if: ${{ github.event.inputs.testpypi == 'false' && github.event.inputs.pypi == 'false' }}
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -32,3 +43,25 @@ jobs:
         uses: JRubics/poetry-publish@v1.11
         with:
           pypi_token: ${{ secrets.PYPI_TOKEN }}
+
+  publish-manual:
+    if: ${{ github.event.inputs.testpypi == 'true' || github.event.inputs.pypi == 'true' }}
+    needs: test 
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Build and publish to pypi
+        if: ${{ github.event.inputs.testpypi == 'false' }}
+        uses: JRubics/poetry-publish@v1.11
+        with:
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Build and publish to testpypi
+        if: ${{ github.event.inputs.testpypi == 'true' }}
+        uses: JRubics/poetry-publish@v1.11
+        with:
+          pypi_token: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository_name: "testpypi"
+          repository_url: "https://test.pypi.org/legacy/"
