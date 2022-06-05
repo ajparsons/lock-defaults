@@ -6,6 +6,7 @@ on:
   pull_request:
     branches-ignore: [ main ]
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -33,9 +34,17 @@ jobs:
 
     - name: Install dependencies
       shell: bash
-      run: python -m poetry install
+      run: |
+        python -m poetry config virtualenvs.create false
+        python -m poetry install
 
-    - name: Test with pytest (in poetry)
+    - name: Test with pytest
       shell: bash
       run: |
-         python -m poetry run python -m pytest -v tests
+         python -m pytest -v tests
+
+    - name: Test with pyright
+      uses: jakebailey/pyright-action@v1
+
+    - name: Test with black
+      uses: psf/black@stable
