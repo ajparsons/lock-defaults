@@ -40,20 +40,21 @@ jobs:
 
       - id: get_status
         name: get_status
-        uses: ajparsons/compare-pypi-poetry-version@v1
+        uses: ajparsons/compare-pypi-poetry-version@main
         with:
          package_name: ${{ steps.repo_name.outputs.value }}
 
       - name: Update git tags
-        if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
         shell: bash
         run: |
+            git config --global user.email "action@github.com"
+            git config --global user.name "GitHub Action"
             for val in $TAGS; do
               git tag -f -a -m "Release for $val" "$val"
             done
             git push -f --tags
         env:
-          TAGS: ${{ steps.get_status.outputs.tags }}
+          TAGS: ${{ steps.get_status.outputs.version_tags }}
 
       - name: Build and publish to pypi
         if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
