@@ -32,7 +32,11 @@
     ],
     "jupyter.jupyterServerType": "local",
     "[markdown]": {
-        "editor.quickSuggestions": true
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        }
     },
     "python.testing.pytestArgs": [
         "tests/"
