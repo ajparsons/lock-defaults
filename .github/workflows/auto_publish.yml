@@ -44,6 +44,17 @@ jobs:
         with:
          package_name: ${{ steps.repo_name.outputs.value }}
 
+      - name: Update git tags
+        if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
+        shell: bash
+        run: |
+            for val in $TAGS; do
+              git tag -f -a -m "Release for $val" "$val"
+            done
+            git push -f --tags
+        env:
+          TAGS: ${{ steps.get_status.outputs.tags }}
+
       - name: Build and publish to pypi
         if: ${{ steps.get_status.outputs.remote_exists == 'true' && steps.get_status.outputs.version_difference == 'true'}}
         uses: JRubics/poetry-publish@v1.11

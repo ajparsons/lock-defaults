@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lock-defaults"
-version = "0.1.3"
+version = "0.1.4"
 description = "Helper decorator to lock default mutable values"
 authors = ["Alex Parsons <alex@alexparsons.co.uk>"]
 readme = "README.md"
